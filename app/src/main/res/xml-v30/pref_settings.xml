@@ -9,7 +9,7 @@
             android:key="predefinedcolor"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
-            android:title="Choose a prebuilt theme" />
+            android:title="@string/pref_theme_choose" />
         <!--com.skydoves.colorpickerpreference.ColorPickerPreference
         android:key="h"
         android:title="Toolbar Color"
@@ -68,8 +68,8 @@
         <Preference
             android:icon="@drawable/ic_pref_book"
             android:key="readme"
-            android:summary="Online readme.md"
-            android:title="View online manual">
+            android:summary="@string/pref_manual_summary"
+            android:title="@string/pref_manual_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/NX-developer/NX-so-decompiler#readme" />
@@ -78,7 +78,7 @@
         <Preference
             android:icon="@drawable/ic_pref_license"
             android:key="openscrn"
-            android:summary="Check open source license"
-            android:title="Open source LICENSE"></Preference>
+            android:summary="@string/pref_license_summary"
+            android:title="@string/pref_license_title"></Preference>
     </PreferenceCategory>
 </PreferenceScreen>

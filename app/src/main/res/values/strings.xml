@@ -316,4 +316,21 @@ Android </string>
     <string name="size">Size</string>
     <string name="size_short">S</string>
     <string name="bytes">Bytes</string>
+
+    <!-- Settings / developer-info labels (externalized for localization) -->
+    <string name="pref_theme_choose">Choose a prebuilt theme</string>
+    <string name="pref_manual_title">View online manual</string>
+    <string name="pref_manual_summary">Online README.md</string>
+    <string name="pref_license_title">Open source LICENSE</string>
+    <string name="pref_license_summary">Check open source license</string>
+    <string name="pref_devinfo_project">Project</string>
+    <string name="pref_devinfo_people">People</string>
+    <string name="pref_github_title">Github repository</string>
+    <string name="pref_github_summary" translatable="false">github.com/NX-developer/NX-so-decompiler</string>
+    <string name="pref_maintainer_title">NX-developer — Maintainer</string>
+    <string name="pref_maintainer_summary">NX so decompiler maintainer</string>
+    <string name="pref_original_author_title">KYHSGeekCode — Original author</string>
+    <string name="pref_original_author_summary">Hyeonseo Yang — author of the original Android-Disassembler (MIT)</string>
+    <string name="pref_bugreporter_title">PramUkesh Venky — The early bug reporter</string>
+    <string name="pref_bugreporter_summary">just a techy guy</string>
 </resources>

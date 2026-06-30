@@ -105,4 +105,38 @@
     <string name="size">Uzunluk</string>
     <string name="size_short">S</string>
     <string name="bytes">Bayt</string>
+
+    <!-- USB / depolama -->
+    <string name="usb_storage">USB depolama</string>
+    <string name="text_freespace">%1$s boş</string>
+    <string name="toast_threshold_breached">%1$s mevcut işlem için yeterli değil. Lütfen biraz yer açın.</string>
+    <string name="toast_not_readable">Seçtiğiniz depolama erişilebilir değil.</string>
+
+    <!-- Gelişmiş kullanıcı özellikleri -->
+    <string name="advanced_import">Gelişmiş içe aktarma</string>
+    <string name="power_user_features">Gelişmiş kullanıcı özellikleri</string>
+    <string name="power_user_import_title">Gelişmiş içe aktarma seçeneklerini etkinleştir</string>
+    <string name="power_user_import_summary">Standart içe aktarmalar SAF üzerinde kalır. Gelişmiş içe aktarmayı yalnızca root, doğrudan dosya sistemi ve diğer SAF dışı girişler için etkinleştirin.</string>
+    <string name="power_user_filesystem_import_title">Dosya sistemi kaynaklarını etkinleştir</string>
+    <string name="power_user_filesystem_import_summary">Gelişmiş içe aktarmada root, depolama ve süreç odaklı ham dosya sistemi girişlerini göster.</string>
+    <string name="power_user_apps_import_title">Yüklü uygulamalar kaynağını etkinleştir</string>
+    <string name="power_user_apps_import_summary">Gelişmiş içe aktarmada yüklü uygulama paketlerini göster. Bu gelişmiş kullanıcı yolu, yüklü paketlere göz atmak için uygulama görünürlüğüne dayanır.</string>
+    <string name="power_user_research_tools_import_title">Araştırma araçlarını etkinleştir</string>
+    <string name="power_user_research_tools_import_summary">Gelişmiş içe aktarmada zararlı yazılım koleksiyonu ve hash arama araçlarını göster.</string>
+
+    <!-- Ayarlar / geliştirici bilgisi etiketleri -->
+    <string name="pref_theme_choose">Hazır bir tema seç</string>
+    <string name="pref_manual_title">Çevrimiçi kılavuzu görüntüle</string>
+    <string name="pref_manual_summary">Çevrimiçi README.md</string>
+    <string name="pref_license_title">Açık kaynak LİSANSI</string>
+    <string name="pref_license_summary">Açık kaynak lisansını görüntüle</string>
+    <string name="pref_devinfo_project">Proje</string>
+    <string name="pref_devinfo_people">Kişiler</string>
+    <string name="pref_github_title">Github deposu</string>
+    <string name="pref_maintainer_title">NX-developer — Sorumlu</string>
+    <string name="pref_maintainer_summary">NX so decompiler sorumlusu</string>
+    <string name="pref_original_author_title">KYHSGeekCode — Orijinal yazar</string>
+    <string name="pref_original_author_summary">Hyeonseo Yang — orijinal Android-Disassembler\'ın yazarı (MIT)</string>
+    <string name="pref_bugreporter_title">PramUkesh Venky — İlk hata bildiren</string>
+    <string name="pref_bugreporter_summary">sadece teknolojiyle ilgili biri</string>
 </resources>

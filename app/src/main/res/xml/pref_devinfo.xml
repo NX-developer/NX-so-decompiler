@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <PreferenceCategory android:title="Project">
+    <PreferenceCategory android:title="@string/pref_devinfo_project">
         <Preference
             android:key="git"
             android:icon="@drawable/ic_pref_code"
-            android:summary="github.com/NX-developer/NX-so-decompiler"
-            android:title="Github repository">
+            android:summary="@string/pref_github_summary"
+            android:title="@string/pref_github_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/NX-developer/NX-so-decompiler" />
         </Preference>
     </PreferenceCategory>
-    <PreferenceCategory android:title="People">
+    <PreferenceCategory android:title="@string/pref_devinfo_people">
         <Preference
             android:key="nx"
             android:icon="@drawable/ic_pref_person"
-            android:summary="NX so decompiler maintainer"
-            android:title="NX-developer - Maintainer">
+            android:summary="@string/pref_maintainer_summary"
+            android:title="@string/pref_maintainer_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/NX-developer/NX-so-decompiler" />
@@ -24,8 +24,8 @@
         <Preference
             android:key="kyhs"
             android:icon="@drawable/ic_pref_person"
-            android:summary="Hyeonseo Yang - author of the original Android-Disassembler (MIT)"
-            android:title="KYHSGeekCode - Original author">
+            android:summary="@string/pref_original_author_summary"
+            android:title="@string/pref_original_author_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/KYHSGeekCode/Android-Disassembler" />
@@ -33,8 +33,8 @@
         <Preference
             android:key="venky"
             android:icon="@drawable/ic_pref_person"
-            android:summary="just a techy guy"
-            android:title="PramUkesh Venky - The early bug reporter">
+            android:summary="@string/pref_bugreporter_summary"
+            android:title="@string/pref_bugreporter_title">
             <intent
                 android:action="android.intent.action.VIEW"
                 android:data="https://github.com/PramUkesh" />
