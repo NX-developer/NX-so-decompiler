@@ -429,6 +429,40 @@ class MainViewModel(application: Application) : AndroidViewModel(application) {
         _showSearchForStrings.value = ShowSearchForStringsDialog.NotShown
         _selectedFilePath.value = project.sourceFilePath
         _currentProject.value = project
+        maybeAutoOpenSourceBinary(project)
+    }
+
+    /**
+     * When a project is opened from a single native binary (ELF .so / PE), open its
+     * disassembly tab automatically and focus it, so the user immediately sees the
+     * disassembled output instead of only the project overview. Other file kinds
+     * (archives, apk, dex, text, images, folders) are left to the file drawer.
+     */
+    private fun maybeAutoOpenSourceBinary(project: ProjectModel) {
+        val file = File(project.sourceFilePath)
+        if (!file.isFile) return
+        if (!looksLikeElfOrPe(file)) return
+        val relPath = ProjectManager.getRelPathOrNull(file.path) ?: return
+        val tabData = TabData(file.name, TabKind.Binary(relPath))
+        openNewTab(tabData)
+        _currentTabIndex.value = _openedTabs.value.lastIndex
+    }
+
+    private fun looksLikeElfOrPe(file: File): Boolean = try {
+        file.inputStream().use { ins ->
+            val b = ByteArray(4)
+            val n = ins.read(b)
+            when {
+                n >= 4 && (b[0].toInt() and 0xFF) == 0x7F &&
+                    b[1].toInt() == 'E'.code && b[2].toInt() == 'L'.code &&
+                    b[3].toInt() == 'F'.code -> true // ELF (.so, executables, .o)
+
+                n >= 2 && b[0].toInt() == 'M'.code && b[1].toInt() == 'Z'.code -> true // PE (exe/dll)
+                else -> false
+            }
+        }
+    } catch (e: Exception) {
+        false
     }
 
     private fun openNewTab(tabData: TabData) {
