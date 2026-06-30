@@ -51,15 +51,15 @@
             android:summary="@string/send_mail_detail"
             android:title="@string/send_mail">
             <intent
-                android:action="android.intent.action.SENDTO"
-                android:data="mailto:jourhyang123@naver.com" />
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/NX-developer/NX-so-decompiler/issues/new" />
         </Preference>
         <Preference
             android:summary="@string/send_feature_request_detail"
             android:title="@string/send_feature_request">
             <intent
-                android:action="android.intent.action.SENDTO"
-                android:data="mailto:1641832e@fire.fundersclub.com" />
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/NX-developer/NX-so-decompiler/issues/new" />
         </Preference>
         <Preference
             android:key="readme"
@@ -67,7 +67,7 @@
             android:title="View online manual">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/KYHSGeekCode/Android-Disassembler#usage-explanation-video" />
+                android:data="https://github.com/NX-developer/NX-so-decompiler#readme" />
         </Preference>
 
         <Preference

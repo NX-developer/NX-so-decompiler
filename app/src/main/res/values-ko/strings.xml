@@ -4,8 +4,8 @@
     <string name="app_info">어플 정보</string>
     <string name="dev_info">개발자 정보</string>
     <string name="dev_info_detail">개발자 정보를 확인합니다</string>
-    <string name="send_mail">메일 보내기</string>
-    <string name="send_mail_detail">개발자에게 메일을 보냅니다</string>
+    <string name="send_mail">버그 신고</string>
+    <string name="send_mail_detail">GitHub에서 버그를 신고합니다</string>
     <string name="FileSize">파일 사이즈:</string>
     <string name="FoffsCS">코드 세그먼트 파일 오프셋:</string>
     <string name="FoffsCSEd">코드 세그먼트의 파일 오프셋 끝:</string>
@@ -19,7 +19,7 @@
     <string name="open_info">오픈 소스</string>
     <string name="open_info_detail">오픈 소스 라이선스</string>
     <string name="send_feature_request">새 기능 제안하기</string>
-    <string name="send_feature_request_detail">개발자에게 새 기능을 제안합니다.</string>
+    <string name="send_feature_request_detail">GitHub에서 새 기능을 제안합니다.</string>
     <string name="disasmTheme">디스어셈블리의 테마</string>
     <string name="permission_needed">저장 권한은 당연히 필요합니다!</string>
     <string name="fail_readfile">파일 읽기에 실패했습니다.</string>

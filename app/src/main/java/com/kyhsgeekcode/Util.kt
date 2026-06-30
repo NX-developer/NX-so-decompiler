@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.Intent.FLAG_ACTIVITY_NEW_TASK
 import android.content.pm.PackageManager
 import android.content.res.Resources
+import android.net.Uri
 import android.util.Log
 import androidx.core.content.ContextCompat
 import androidx.core.content.FileProvider
@@ -307,9 +308,6 @@ fun convertDpToPixel(dp: Float): Int {
 fun getDrawable(id: Int) = ContextCompat.getDrawable(appCtx, id)
 
 fun sendErrorReport(error: Throwable) {
-    val emailIntent = Intent(Intent.ACTION_SEND)
-    emailIntent.type = "plain/text"
-    emailIntent.putExtra(Intent.EXTRA_EMAIL, arrayOf("1641832e@fire.fundersclub.com"))
     var ver = ""
     try {
         val pInfo = appCtx.packageManager.getPackageInfo(appCtx.packageName, 0)
@@ -317,46 +315,17 @@ fun sendErrorReport(error: Throwable) {
     } catch (e: PackageManager.NameNotFoundException) {
         e.printStackTrace()
     }
-    emailIntent.putExtra(
-        Intent.EXTRA_SUBJECT,
-        "Crash report - " + error.message + "(ver" + ver + ")"
-    )
-    val content = StringBuilder(Log.getStackTraceString(error))
-    content.append("OS version: ${android.os.Build.VERSION.SDK_INT}")
-    content.append("\nHello, thank you for sending crash report!\n\n\n============================")
-    emailIntent.putExtra(
-        Intent.EXTRA_TEXT,
-        content.toString()
-    )
-    val resultPath: String?
-    if (error is RuntimeException) {
-        val path = ProjectManager.currentProject?.sourceFilePath
-        if (path != null) {
-            val file = File(path)
-            if (file.isDirectory) {
-                resultPath = appCtx.externalCacheDir!!.resolve("archive.tar.gz").path
-                createTarGZ(path, resultPath)
-            } else {
-                resultPath = path
-            }
-        } else {
-            resultPath = path
-        }
-        if (resultPath != null) {
-            try {
-                val uri = FileProvider.getUriForFile(
-                    appCtx,
-                    appCtx.applicationContext.packageName + ".provider",
-                    File(resultPath)
-                )
-                emailIntent.putExtra(Intent.EXTRA_STREAM, uri)
-            } catch (e: Exception) {
-                // TODO: Copy resultPath to somewhere accessible from provider and try again
-                Log.e("UtilKt", "Error appending file")
-            }
-        }
-    }
-    val intent = Intent.createChooser(emailIntent, appCtx.getString(R.string.send_crash_via_email))
+    val title = "Crash report - " + error.message + " (ver" + ver + ")"
+    val body = StringBuilder("Please describe what you were doing when this happened.\n\n")
+    body.append("OS version: ${android.os.Build.VERSION.SDK_INT}\n\n")
+    body.append("```\n")
+    body.append(Log.getStackTraceString(error))
+    body.append("\n```")
+    // Route crash reports to the NX so decompiler GitHub issue tracker.
+    val url = "https://github.com/NX-developer/NX-so-decompiler/issues/new" +
+        "?title=" + Uri.encode(title) +
+        "&body=" + Uri.encode(body.toString())
+    val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
     intent.addFlags(FLAG_ACTIVITY_NEW_TASK)
     appCtx.startActivity(intent)
 }

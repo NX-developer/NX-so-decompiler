@@ -4,12 +4,12 @@
     <string name="app_info">Application info</string>
     <string name="dev_info">Developer info</string>
     <string name="dev_info_detail">Check out developer info</string>
-    <string name="send_mail">Send Email</string>
-    <string name="send_mail_detail">Send an e-mail to the developer.</string>
+    <string name="send_mail">Report a bug</string>
+    <string name="send_mail_detail">Open a bug report on GitHub</string>
     <string name="open_info">Open source info</string>
     <string name="open_info_detail">Open source license</string>
-    <string name="send_feature_request">Send Feature request</string>
-    <string name="send_feature_request_detail">Send a feature request to the developer.</string>
+    <string name="send_feature_request">Request a feature</string>
+    <string name="send_feature_request_detail">Open a feature request on GitHub</string>
 
     <string name="disasmTheme">Disassembly theme</string>
 
