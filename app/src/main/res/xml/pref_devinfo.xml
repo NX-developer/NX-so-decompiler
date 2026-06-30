@@ -1,35 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <Preference
-        android:key="git"
-        android:summary="Github"
-        android:title="Github repository">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/NX-developer/NX-so-decompiler" />
-    </Preference>
-    <Preference
-        android:key="nx"
-        android:summary="NX so decompiler maintainer"
-        android:title="NX-developer - Maintainer">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/NX-developer/NX-so-decompiler" />
-    </Preference>
-    <Preference
-        android:key="kyhs"
-        android:summary="Hyeonseo Yang - author of the original Android-Disassembler (MIT)"
-        android:title="KYHSGeekCode - Original author">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/KYHSGeekCode/Android-Disassembler" />
-    </Preference>
-    <Preference
-        android:key="venky"
-        android:summary="just a techy guy"
-        android:title="PramUkesh Venky - The early bug reporter">
-        <intent
-            android:action="android.intent.action.VIEW"
-            android:data="https://github.com/PramUkesh" />
-    </Preference>
+    <PreferenceCategory android:title="Project">
+        <Preference
+            android:key="git"
+            android:icon="@drawable/ic_pref_code"
+            android:summary="github.com/NX-developer/NX-so-decompiler"
+            android:title="Github repository">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/NX-developer/NX-so-decompiler" />
+        </Preference>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="People">
+        <Preference
+            android:key="nx"
+            android:icon="@drawable/ic_pref_person"
+            android:summary="NX so decompiler maintainer"
+            android:title="NX-developer - Maintainer">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/NX-developer/NX-so-decompiler" />
+        </Preference>
+        <Preference
+            android:key="kyhs"
+            android:icon="@drawable/ic_pref_person"
+            android:summary="Hyeonseo Yang - author of the original Android-Disassembler (MIT)"
+            android:title="KYHSGeekCode - Original author">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/KYHSGeekCode/Android-Disassembler" />
+        </Preference>
+        <Preference
+            android:key="venky"
+            android:icon="@drawable/ic_pref_person"
+            android:summary="just a techy guy"
+            android:title="PramUkesh Venky - The early bug reporter">
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="https://github.com/PramUkesh" />
+        </Preference>
+    </PreferenceCategory>
 </PreferenceScreen>

@@ -5,6 +5,7 @@
             android:defaultValue="0"
             android:entries="@array/predefinedcolor"
             android:entryValues="@array/predefinedcolor_values"
+            android:icon="@drawable/ic_pref_palette"
             android:key="predefinedcolor"
             android:negativeButtonText="@null"
             android:positiveButtonText="@null"
@@ -45,9 +46,11 @@
     <PreferenceCategory android:title="@string/app_info">
         <Preference
             android:fragment="com.kyhsgeekcode.disassembler.preference.DeveloperInfoFragment"
+            android:icon="@drawable/ic_pref_person"
             android:summary="@string/dev_info"
             android:title="@string/dev_info_detail" />
         <Preference
+            android:icon="@drawable/ic_pref_bug"
             android:summary="@string/send_mail_detail"
             android:title="@string/send_mail">
             <intent
@@ -55,6 +58,7 @@
                 android:data="https://github.com/NX-developer/NX-so-decompiler/issues/new" />
         </Preference>
         <Preference
+            android:icon="@drawable/ic_pref_lightbulb"
             android:summary="@string/send_feature_request_detail"
             android:title="@string/send_feature_request">
             <intent
@@ -62,6 +66,7 @@
                 android:data="https://github.com/NX-developer/NX-so-decompiler/issues/new" />
         </Preference>
         <Preference
+            android:icon="@drawable/ic_pref_book"
             android:key="readme"
             android:summary="Online readme.md"
             android:title="View online manual">
@@ -71,6 +76,7 @@
         </Preference>
 
         <Preference
+            android:icon="@drawable/ic_pref_license"
             android:key="openscrn"
             android:summary="Check open source license"
             android:title="Open source LICENSE"></Preference>
