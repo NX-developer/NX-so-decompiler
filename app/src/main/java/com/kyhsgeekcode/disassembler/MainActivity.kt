@@ -18,7 +18,6 @@ import androidx.compose.foundation.ExperimentalFoundationApi
 import com.kyhsgeekcode.disassembler.PermissionUtils.requestAppPermissions
 import com.kyhsgeekcode.disassembler.disasmtheme.ColorHelper
 import com.kyhsgeekcode.disassembler.ui.MainScreen
-import com.kyhsgeekcode.disassembler.utils.CrashReportingTree
 import com.kyhsgeekcode.disassembler.viewmodel.MainViewModel
 import com.kyhsgeekcode.sendErrorReport
 import kotlinx.serialization.ExperimentalSerializationApi
@@ -62,8 +61,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         if (BuildConfig.DEBUG) {
             Timber.plant(DebugTree())
-        } else {
-            Timber.plant(CrashReportingTree())
         }
         //        setupUncaughtException()
         initNative()
