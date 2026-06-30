@@ -86,10 +86,22 @@ class BinaryTabData(val data: TabKind.Binary, val viewModelScope: CoroutineScope
         private set
 
     override suspend fun prepare() {
-        val abstractFile =
-            AbstractFile.createInstance(ProjectDataStorage.resolveToRead(data.relPath)!!)
-        _parsedFile.value = DataResult.Success(abstractFile)
-        disasmData = createPreparedDisasmData(abstractFile)
+        try {
+            val source = ProjectDataStorage.resolveToRead(data.relPath)
+                ?: throw java.io.FileNotFoundException("Cannot locate file for ${data.relPath}")
+            val abstractFile = AbstractFile.createInstance(source)
+            // Build the disassembly BEFORE publishing success, so any failure here
+            // surfaces as an error state instead of crashing later on an
+            // uninitialised disasmData.
+            val disasm = createPreparedDisasmData(abstractFile)
+            disasmData = disasm
+            _parsedFile.value = DataResult.Success(abstractFile)
+        } catch (e: kotlinx.coroutines.CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            Timber.e(e, "Failed to prepare binary disassembly for ${data.relPath}")
+            _parsedFile.value = DataResult.Failure(e)
+        }
     }
 
     fun applyManualSetup(config: BinaryManualSetupConfig) {
@@ -296,8 +308,13 @@ fun BinaryTabContent(state: Int, data: BinaryTabData, viewModel: MainViewModel) 
                     data.onChooseColumnDone()
                 }, onDismissRequest = { data.onChooseColumnDone() })
         }
+    } else if (parsedFileValue is DataResult.Failure) {
+        Text(
+            "Could not disassemble this file.\n\n" +
+                (parsedFileValue.exception.message ?: parsedFileValue.exception.toString()),
+        )
     } else {
-        Text("Parsed file is none!")
+        Text("Loading…")
     }
 
 
